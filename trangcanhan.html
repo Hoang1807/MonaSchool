@@ -1,0 +1,118 @@
+<div class="my-3">
+    <h3 class="text-center">Profile</h3>
+    <h5 class="text-center">I'm a creative PHP webdeveloper</h5>
+</div>
+<div class="row row-cols-1 row-cols-lg-3 py-5">
+    <div class="col">
+        <div class="h4 mb-3">Lịch sử làm bài</div>
+        <table class="table table-bordered">
+            <tr class="text-capitalize text-center">
+                <th scope="col">Môn Học</th>
+                <th scope="col">thời gian</th>
+                <th scope="col">ngày</th>
+                <th scope="col">điểm</th>
+            </tr>
+
+            <tr ng-repeat="item in historyQuiz | filter:accountActive.id:true">
+                <td ng-bind="item.nameMH"></td>
+                <td ng-bind="item.completionTime"></td>
+                <td ng-bind="item.date | date:'dd/MM/yyyy'"></td>
+                <td ng-bind="item.mark"></td>
+            </tr>
+        </table>
+        <div>
+            Hình ảnh của
+            <span class=" border-bottom border-dark-subtle">
+                <a href="#" class="user-select-none text-decoration-none text-muted">
+                    Hữu Hoàng
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="col">
+        <div class="d-grid" style="place-items: center;">
+            <img ng-src="{{accountActive.img}}" alt="hình ảnh" class="img-fluid rounded-circle object-fit-cover"
+                style="width: 250px;height: 250px;">
+        </div>
+    </div>
+    <div class="col">
+        <div class="h4 mb-3">Details</div>
+        <div>
+            <h5 class="fw-bold">Name:</h5>
+            <p class="text-muted" ng-bind="accountActive.name"></p>
+        </div>
+        <div>
+            <h5 class="fw-bold">Email:</h5>
+            <p class="text-muted" ng-bind="accountActive.email"></p>
+        </div>
+        <div>
+            <h5 class="fw-bold">Giới tính:</h5>
+            <p class="text-muted" ng-bind="accountActive.gender==true?'Nam':'Nữ'"></p>
+        </div>
+        <div>
+            <h5 class="fw-bold">Ngày sinh:</h5>
+            <p class="text-muted" ng-bind="accountActive.birthday | date:'dd/MM/yyyy'"></p>
+        </div>
+        <div>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trangcanhan">
+                Thay đổi thông tin
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Model cập nhật -->
+<div class="modal fade" id="trangcanhan" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Cập Nhât Thông Tin</h2>
+            </div>
+            <div class="modal-body py-0">
+                <form name="formProfile" autocomplete="off" class="px-3">
+                    <div class="mb-4">
+                        <input type="text" name="name" ng-model="account.name" class="form-control" placeholder="Họ Tên"
+                            required />
+                        <span ng-show="formProfile.name.$invalid" class="text-danger">Vui lòng nhập tên</span>
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" name="email" ng-model="account.email" class="form-control"
+                            placeholder="Email" required />
+                        <span ng-show="formProfile.email.$invalid" class="text-danger">
+                            Vui lòng nhập mail (đúng định dạng)
+                        </span>
+                    </div>
+                    <div class="mb-4">
+                        <label class="ps-3">Giới tính:</label>
+                        <div class="form-check form-check-inline ms-3">
+                            <input class="form-check-input" type="radio" ng-model="account.gender" id="male-profile"
+                                value="nam" ng-checked="account.gender == true" />
+                            <label class="form-check-label" for="male-profile">Nam</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" ng-model="account.gender" id="female-profile"
+                                value="nữ" ng-checked="account.gender == false" />
+                            <label class="form-check-label" for="female-profile">Nữ</label>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <input type="date" name="date" ng-model="account.birthday" class="form-control"
+                            placeholder="Ngày sinh" required />
+                        <span ng-show="formProfile.date.$invalid" class="text-danger">
+                            Vui lòng chọn Ngày Sinh
+                        </span>
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" name="birthday" ng-model="account.img" class="form-control"
+                            placeholder="Link Ảnh" />
+                    </div>
+                    <button class="visually-hidden" ng-click="capnhat()" tabindex="-1"></button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="capnhat()">Lưu</button>
+                <button id="btn-close-profile" class="btn btn-secondary" data-bs-dismiss="modal"
+                    ng-click="cancel()">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<!-- tab đổi mật khẩu -->
+<div class="tab-pane fade show active" id="doimatkhau">
+  <form name="formDoiMatKhau" class="form-doimatkhau border border-2 m-5 mx-auto" autocomplete="off">
+    <h1 class="text-uppercase text-muted text-center pt-4 px-4 pb-3">
+      đổi mật khẩu
+    </h1>
+    <div class="d-grid w-75 mx-auto">
+      <input type="text" class="form-control mb-3" ng-model="password.cu" name="matkhaucu" placeholder="Mật khẩu cũ"
+        required />
+      <input type="text" class="form-control mb-3" ng-model="password.moi" name="matkhaumoi" placeholder="Mật khẩu mới"
+        required />
+    </div>
+    <div class="d-grid w-75 mx-auto mb-4">
+      <button ng-click="doimatkhau()" class="btn btn-primary rounded-4">
+        Xác Nhận
+      </button>
+    </div>
+  </form>
+</div>

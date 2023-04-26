@@ -1,0 +1,136 @@
+<div class="carousel slide mt-2" id="carousel-head" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item cell active" data-bs-interval="5000">
+      <img src="Image/hinhnen_1.jpg" alt="" />
+      <div class="cell-item">
+        <ul class="list-group list-group-flush mt-2 ms-1 mt-md-5 ms-md-5">
+          <li class="list-group-item border-0">
+            <h3 class="text-white">
+              Chào Mừng Bạn Đến Với
+              <span class="border-bottom border-3 border-primary">MonaSchool</span>
+            </h3>
+          </li>
+          <li class="list-group-item text-light fs-5 fw-bold border-0">
+            Với AZtest, người dùng có thể dễ dàng tạo lập cho mình một
+            website tổ chức ôn tập, thi trắc nghiệm trực tuyến mà không
+            cần quan tâm đến các vấn đề kỹ thuật
+          </li>
+          <li class="list-group-item border-0">
+            <a href="#" class="btn btn-primary fw-bold">Xem Khóa Học</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="carousel-item cell" data-bs-interval="5000">
+      <img src="Image/hinhnen_2.jpg" alt="" />
+      <div class="cell-item">
+        <ul class="list-group list-group-flush mt-2 ms-1 mt-md-5 ms-md-5">
+          <li class="list-group-item border-0">
+            <h3 class="text-white">
+              Chào Mừng Bạn Đến Với
+              <span class="border-bottom border-3 border-primary">MonaSchool</span>
+            </h3>
+          </li>
+          <li class="list-group-item text-light fs-5 fw-bold border-0">
+            Với AZtest, người dùng có thể dễ dàng tạo lập cho mình một
+            website tổ chức ôn tập, thi trắc nghiệm trực tuyến mà không
+            cần quan tâm đến các vấn đề kỹ thuật
+          </li>
+          <li class="list-group-item border-0">
+            <a href="#" class="btn btn-primary fw-bold">Xem Khóa Học</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel-head" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel-head" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </button>
+</div>
+
+<div class="row mt-2">
+  <div class="col-12">
+    <h4 class="text-center">Chúng tôi có gì</h4>
+    <div class="card-divider mt-3 mb-2 rounded-2 mx-auto">
+      <div class="card-divider-child mx-auto"></div>
+    </div>
+    <div class="card-text text-center text-muted">
+      Trang web giúp bạn củng cố kiến thức
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 gx-2">
+    <div class="col">
+      <div class="card card-ctmg border-0">
+        <div class="card-img mt-3 m-auto d-grid align-items-center">
+          <i class="bi bi-bezier2"></i>
+        </div>
+        <div class="card-body">
+          <h4 class="text-center">Hệ thông câu hỏi</h4>
+          <p class="card-text text-center">
+            Hệ thông câu hỏi phong phú. Từ cơ bản đến nâng cao
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-ctmg border-0">
+        <div class="card-img mt-3 m-auto d-grid align-items-center">
+          <i class="bi bi-bezier2"></i>
+        </div>
+        <div class="card-body">
+          <h4 class="text-center">Đa dạng môn học</h4>
+          <p class="card-text text-center">
+            Hệ thống các môn học lập trình đa dạng
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-ctmg border-0">
+        <div class="card-img mt-3 m-auto d-grid align-items-center">
+          <i class="bi bi-bezier2"></i>
+        </div>
+        <div class="card-body">
+          <h4 class="text-center">Kiểm soát thời gian</h4>
+          <p class="card-text text-center">
+            Chúng tôi cung cấp cho bạn hệ thống giúp bạn có thể kiểm
+            soát được các khóa học của mình
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-12">
+    <h4 class="text-center text-uppercase">Khóa học nổi bật</h4>
+    <div class="card-divider mt-3 mb-2 rounded-2 mx-auto">
+      <div class="card-divider-child mx-auto"></div>
+    </div>
+    <div class="card-text text-center text-muted text-capitalize">
+      Các khóa học có số lượng học viên đăng ký nhiều nhất
+    </div>
+  </div>
+  <div class="row row-cols-2 row-cols-md-4 mt-3 g-2">
+    <div class="col" ng-repeat="x in listMonHocNoiBat track by $index">
+      <div class="card card-khnb border rounded-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-center mb-3">
+            <a href="#" class="d-grid text-decoration-none stretched-link" style="place-items: center">
+              <img ng-src="{{x.hinh}}" style="height: 150px; width: 90%" />
+            </a>
+          </div>
+          <div class="card-title text-center fw-bold text-truncate" ng-bind="x.tenmon"></div>
+          <div class="d-flex justify-content-start align-items-center">
+            <i class="bi bi-people-fill pe-2"></i>
+            <span ng-bind="x.soluonghoc"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<header class="row">
+    <div class="navbar navbar-expand-md bg-light">
+        <div class="container d-flex justify-content-between align-items-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvas-menu"
+                tabindex="-1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#!trangchu"><img src="Image/logo.png" id="logo-img" /></a>
+            <div class="row list-unstyled my-2 ms-5 d-none d-lg-block d-lg-flex">
+                <div class="col-4 d-flex">
+                    <i class="bi bi-geo-alt-fill pe-2"></i>
+                    <a class="title" href="#">319 16C Lý Thường Kiệt Tp.HCM Việt Nam</a>
+                </div>
+                <div class="col-3 d-flex">
+                    <i class="bi bi-telephone-fill my-auto pe-2"></i>
+                    <a class="title my-auto" href="tel:0931418748">0931-418-748</a>
+                </div>
+                <div class="col-5 d-flex">
+                    <i class="bi bi-envelope-fill my-auto pe-2"></i>
+                    <a class="title my-auto" href="tel:0931418748">huuhoang1807@gmail.com</a>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <form class="search rounded-circle text-bg-primary text-center">
+                    <span class="bi bi-search">
+                        <div class="bi-inp-search p-2 border">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm" required />
+                                <button type="submit" class="btn btn-primary">
+                                    <span class="bi bi-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </span>
+                </form>
+                <span class="bi bi-person-fill mx-1 mx-md-3">
+                    <ul class="bi-ul-account list-unstyled border">
+                        <li class="li-hover p-2" ng-class="{'d-none': accountActive != ''}">
+                            <a class=" title-account text-decoration-none ms-3 stretched-link" href="#dangky"
+                                data-bs-toggle="modal">
+                                Đăng ký
+                            </a>
+                        </li>
+                        <li class="li-hover p-2" ng-class="{'d-none': accountActive != ''}">
+                            <a id="model-login" class=" title-account text-decoration-none ms-3 stretched-link"
+                                data-bs-toggle="modal" href="#dangnhap">Đăng nhập</a>
+                        </li>
+                        <li class="li-hover p-2 position-relative taikhoan" ng-class="{'d-none': accountActive == ''}">
+                            <a class="title-account text-decoration-none ms-3 
+                            stretched-link d-flex justify-content-between align-items-center">
+                                Tài Khoản <i class="bi bi-chevron-left"></i>
+                            </a>
+                            <ul class="list-unstyled border position-absolute bg-light taikhoan-childrens">
+                                <li class="li-hover p-2">
+                                    <a class="title-account text-decoration-none ms-3 stretched-link"
+                                        href="#!taikhoan/trangcanhan">Trang cá
+                                        nhân
+                                    </a>
+                                </li>
+                                <li class="li-hover p-2">
+                                    <a class="title-account text-decoration-none ms-3 stretched-link"
+                                        href="#!taikhoan/doimatkhau">Đổi mật
+                                        khẩu
+                                    </a>
+                                </li>
+                                <li class="li-hover p-2">
+                                    <a class="title-account text-decoration-none ms-3 stretched-link"
+                                        ng-click="dangxuat()">
+                                        Đăng Xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+</header>

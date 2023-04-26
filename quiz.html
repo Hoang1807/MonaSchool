@@ -1,0 +1,89 @@
+<div class="row">
+	<div class="col-md-3">
+		<div class="row row-cols-1">
+			<div class="col border border-2 pb-3">
+				<h4 class="text-center px-3 pt-3" ng-bind="tenbai"></h4>
+				<div class="d-flex flex-column px-3">
+					<div class="quiz-item d-flex">
+						<span>Người đăng:</span><span class="ms-3">admin</span>
+					</div>
+					<div class="quiz-item d-flex">
+						<span>Số câu:</span><span class="ms-3"><span ng-bind="start+1"></span>/10</span>
+					</div>
+					<div class="quiz-item d-flex">
+						<span>Thời gian:</span><span class="ms-3">15 phút</span>
+					</div>
+				</div>
+			</div>
+			<div class="col border border-2 mt-2">
+				<div class="d-grid m-5 p-3" style="place-items: center">
+					<h3 ng-bind="countTime">Time</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-9 border border-2 ">
+		<div class="ms-2 mt-4" ng-repeat=" item in list10CauHoi | limitTo:1:start | orderBy: 'Text'">
+			<div class=" d-flex m-2 ">
+				<span class=" text-danger">Câu {{start+1}}:</span>
+				<span class="ms-3">
+					<div class="text-dark" ng-bind="item.Text" style="text-align: justify;"></div>
+					<span class="badge text-bg-primary"><span ng-bind="item.Marks"></span>đ</span>
+				</span>
+			</div>
+			<div class="ps-5">
+				<span ng-bind="hasEmptyElement(listSelectedAnswer)"></span>
+				<div class="form-check mb-3" ng-repeat="anwers in item.Answers track by $index">
+					<input class="form-check-input" type="radio" ng-model="traloi.Id" ng-click="add(anwers);"
+						name="dapan" ng-value="anwers.Id" id="dapan{{$index}}" />
+					<label class="form-check-label" for="dapan{{$index}}" ng-bind="anwers.Text"></label>
+				</div>
+			</div>
+		</div>
+		<div class="d-flex justify-content-center my-3 mb-md-0">
+			<button class="btn btn-danger mx-2" ng-click="prev()">Trước đó</button>
+			<button class="btn btn-primary mx-2" ng-click="next()">Kế tiếp</button>
+			<button class="btn btn-success mx-2" ng-click="chamDiem()" data-bs-toggle="modal" id="btn-chamdiem"
+				data-bs-target="#thongbaodiem" ng-class="{'d-none': flagAllAnswerSelected}">
+				Nộp Bài
+			</button>
+		</div>
+	</div>
+</div>
+<div class="modal fade" data-bs-backdrop="static" id="thongbaodiem" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title">Kết Quả</h1>
+			</div>
+			<div class="modal-body">
+				<table class="table table-borderless">
+					<tr>
+						<th class="w-50">Họ tên:</th>
+						<td ng-bind="thongbaodiem.name" class="text-start"></td>
+					</tr>
+					<tr>
+						<th class="w-50">Tên bài kiểm tra:</th>
+						<td ng-bind="thongbaodiem.nameMH"></td>
+					</tr>
+					<tr>
+						<th class="w-50">Số câu làm đúng:</th>
+						<td>{{thongbaodiem.mark}}</td>
+					</tr>
+					<tr>
+						<th class="w-50">thời gian hoàn thành:</th>
+						<td>{{thongbaodiem.completionTime}}</td>
+					</tr>
+					<tr>
+						<th class="w-50">Ngày làm:</th>
+						<td>{{thongbaodiem.date | date: 'dd/MM/yyyy'}}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" data-bs-dismiss="modal"
+					ng-click="pathChange('/trangchu')">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>

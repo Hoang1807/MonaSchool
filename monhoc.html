@@ -1,0 +1,52 @@
+<div class="card-divider mt-3 mb-2 rounded-2 mx-auto">
+  <div class="card-divider-child mx-auto"></div>
+</div>
+<div class="row mt-3 mb-4">
+  <div class="col d-flex justify-content-center button-group
+              filter-button-group">
+    <div class="mx-1">
+      <input type="radio" id="all" ng-model="search.filter" name="filter" class="btn-check" value="ALL"></input>
+      <label for="all" class="btn btn-primary text-light">ALL</label>
+    </div>
+
+    <div class="mx-1">
+      <input type="radio" id="web" ng-model="search.filter" name="filter" class="btn-check" value="WEB"></input>
+      <label for="web" class="btn btn-primary text-light">Web</label>
+    </div>
+
+    <div class="mx-1">
+      <input type="radio" id="app" ng-model="search.filter" name="filter" class="btn-check" value="APP"></input>
+      <label for="app" class="btn btn-primary text-light">APP</label>
+    </div>
+
+    <div class="mx-1">
+      <input type="radio" id="sql" ng-model="search.filter" name="filter" class="btn-check" value="SQL"></input>
+      <label for="sql" class="btn btn-primary text-light">SQL</label>
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 my-3 g-2" id="product-list">
+  <div class="col col-md-6 web" style="background-color: #f4f8fa;" ng-repeat="item in listMonHoc  | filter:search">
+    <div class="card border rounded-3 card-mh">
+      <div class="product-img position-relative">
+        <img ng-src="{{item.Logo}}" alt="" class="img-fluid d-block mx-auto w-75 p-3" />
+        <div class="card-hover position-absolute">
+          <a ng-show="checkAccount"
+            ng-href="{{idMHActive == '' || idMHActive.id == item.Id ? '#!quiz/'+item.Id+'/'+item.Name : '#!monhoc'}}"
+            ng-click="errorSignMH(item.Id)" class="btn btn-dark text-decoration-none fw-bold text-light">
+            Bắt đầu quiz
+          </a>
+          <a ng-show="!checkAccount" ng-click="errorSignin()"
+            class="btn btn-dark text-decoration-none fw-bold text-light">
+            Bắt đầu quiz
+          </a>
+        </div>
+      </div>
+      <div class="card-body text-center py-3">
+        <span class="card-title d-block fw-bold text-uppercase text-truncate" ng-bind="item.Name"></span>
+        <span class="d-block text-muted">10 câu</span>
+      </div>
+    </div>
+  </div>
+</div>
